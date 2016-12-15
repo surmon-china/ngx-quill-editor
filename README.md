@@ -62,16 +62,15 @@ import { Component } from '@angular/core';
   template: require('./sample.html')
 })
 export class Sample{
-  constructor(){
-    this.editorContent = `<p>My HTML</p>`;
-    this.editorConfig = {
-      placeholder: "输入公告内容，支持html"
-    };
-  }
+  public editorContent = `<p>My HTML</p>`;
+  public editorConfig = {
+    placeholder: "输入公告内容，支持html"
+  };
+  constructor() {}
   onEditorCreated(quill) {
     console.log('this is quill object', quill);
   }
-  onContentChanged(quill, html, text) {
+  onContentChanged({ quill, html, text }) {
     console.log(quill, html, text);
   }
 }
@@ -79,7 +78,7 @@ export class Sample{
 
 
 ### Configuration
-- config : The configuration object for quill see https://quilljs.com/docs/api/
+- config : The configuration object for quill see https://quilljs.com/docs/quickstart/
 
 
 # Author Blog

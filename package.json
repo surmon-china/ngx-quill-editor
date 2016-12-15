@@ -1,6 +1,6 @@
 {
   "name": "ng2-quill-editor",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "quill editor component for Angular2",
   "main": "index.js",
   "scripts": {

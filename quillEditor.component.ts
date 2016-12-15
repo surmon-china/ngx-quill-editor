@@ -106,9 +106,7 @@ export class QuillEditorComponent implements AfterViewInit, ControlValueAccessor
       let html = this.editorElem.children[0].innerHTML;
       const text = this.quillEditor.getText();
 
-      if (html === '<p><br></p>') {
-          html = null;
-      }
+      if (html === '<p><br></p>') html = null;
 
       this.onModelChange(html);
 
