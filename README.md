@@ -20,9 +20,15 @@ Quill editor for Angular2，基于Quill、适用于Angular2的富文本编辑器
 npm install ng2-quill-editor --save
 ```
 
+``` bash
+npm install --save-dev @types/quill
+```
+
 
 ### Sample
-Include QuillEditorModule in your main module :
+First of all, include script `node_modules/quill/dist/quill.js` that ng2-quill-editor dependented in proper way;
+
+Next Include QuillEditorModule in your main module :
 ``` javascript
 import { QuillEditorModule } from 'ng2-quill-editor';
 
