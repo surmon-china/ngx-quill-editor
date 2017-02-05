@@ -12,16 +12,14 @@ import {
 } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 
-const Quill = require('quill/dist/quill.js');
-
 @Component({
   selector: 'quill-editor',
   template: `<div></div>`,
-  styles: [
-    require('./quillEditor.component.css'),
-    require('quill/dist/quill.snow.css'),
-    require('quill/dist/quill.bubble.css'),
-    require('quill/dist/quill.core.css')
+  styleUrls: [
+    './quillEditor.component.css',
+    '../quill/dist/quill.snow.css',
+    '../quill/dist/quill.bubble.css',
+    '../quill/dist/quill.core.css'
   ],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
