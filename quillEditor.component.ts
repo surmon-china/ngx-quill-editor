@@ -15,7 +15,7 @@ import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 @Component({
   selector: 'quill-editor',
   template: `<div></div>`,
-  styles: [
+  styleUrls: [
     './quillEditor.component.css',
     '../quill/dist/quill.snow.css',
     '../quill/dist/quill.bubble.css',
