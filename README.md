@@ -26,7 +26,7 @@ npm install --save-dev @types/quill
 
 
 ### Sample
-First of all, include script `node_modules/quill/dist/quill.js` that ng2-quill-editor dependented in proper way;
+First of all, include script `node_modules/quill/dist/quill.js` that `ng2-quill-editor` dependented in proper way;
 
 Next Include QuillEditorModule in your main module :
 ``` javascript
