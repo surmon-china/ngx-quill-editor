@@ -12,6 +12,8 @@ import {
 } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 
+const Quill = require('quill/dist/quill.js');
+
 @Component({
   selector: 'quill-editor',
   template: `<div></div>`,
