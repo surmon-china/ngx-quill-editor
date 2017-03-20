@@ -8,7 +8,10 @@
 
 
 # Ng2-Quill-Editor
-Quill editor for Angular2，基于Quill、适用于Angular2的富文本编辑器。
+Quill editor for Angular2.
+
+基于Quill、适用于Angular2的富文本编辑器。
+
 
 # Example
 [Demo Page](https://surmon-china.github.io/ng2-quill-editor/)
@@ -26,10 +29,9 @@ npm install --save-dev @types/quill
 
 
 ### Sample
-First of all, include script `node_modules/quill/dist/quill.js` that `ng2-quill-editor` dependented in proper way;
 
-Next Include QuillEditorModule in your main module :
-``` javascript
+Include QuillEditorModule in your main module:
+``` typescript
 import { QuillEditorModule } from 'ng2-quill-editor';
 
 @NgModule({
@@ -42,12 +44,14 @@ import { QuillEditorModule } from 'ng2-quill-editor';
 export class AppModule {}
 ```
 
-Then use it in your component :
+Then use it in your component:
 
 ``` html
 <!-- use with ngModel -->
 <quill-editor [(ngModel)]="editorContent"
-              [config]="editorConfig"
+              [options]="editorOptions"
+              (blur)="onEditorBlured($event)"
+              (focus)="onEditorFocused($event)"
               (ready)="onEditorCreated($event)"
               (change)="onContentChanged($event)"></quill-editor>
 
@@ -55,7 +59,9 @@ Then use it in your component :
 <!-- or use with formControl -->
 <quill-editor class="form-control"
               [formControl]="editorContent"
-              [config]="editorConfig"
+              [options]="editorOptions"
+              (blur)="onEditorBlured($event)"
+              (focus)="onEditorFocused($event)"
               (ready)="onEditorCreated($event)"
               (change)="onContentChanged($event)"></quill-editor>
 ```
@@ -67,25 +73,47 @@ import { Component } from '@angular/core';
   selector: 'sample',
   template: require('./sample.html')
 })
-export class Sample{
-  public editorContent = `<p>My HTML</p>`;
-  public editorConfig = {
-    placeholder: "输入公告内容，支持html"
+export class Sample {
+
+  public editor;
+  public editorContent = `<h3>I am Example content</h3>`;
+  public editorOptions = {
+    placeholder: "insert content..."
   };
+
   constructor() {}
-  onEditorCreated(quill) {
-    console.log('this is quill object', quill);
+
+  onEditorBlured(quill) {
+    console.log('editor blur!', quill);
   }
+
+  onEditorFocused(quill) {
+    console.log('editor focus!', quill);
+  }
+
+  onEditorCreated(quill) {
+    this.editor = quill;
+    console.log('quill is ready! this is current quill instance object', quill);
+  }
+
   onContentChanged({ quill, html, text }) {
-    console.log(quill, html, text);
+    console.log('quill content is changed!', quill, html, text);
+  }
+
+  ngOnInit() {
+    setTimeout(() => {
+      this.editorContent = '<h1>content changed!</h1>';
+      console.log('you can use the quill instance object to do something', this.editor);
+      // this.editor.disable();
+    }, 2800)
   }
 }
 ```
 
 
 ### Configuration
-- config : The configuration object for quill see https://quilljs.com/docs/quickstart/
+- options : The configuration object for quill see https://quilljs.com/docs/quickstart/
 
 
 # Author Blog
-[Surmon](http://surmon.me)
+[Surmon](https://surmon.me)

@@ -10,4 +10,4 @@ import { QuillEditorComponent } from './quillEditor.component';
     QuillEditorComponent
   ]
 })
-export class QuillEditorModule { }
+export class QuillEditorModule {}

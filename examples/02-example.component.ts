@@ -1,48 +1,65 @@
 import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
-import { FormGroup, AbstractControl, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'quill-example-02',
-  styles: [`.form-group { border: 1px solid #ccc; } .has-error { border-color: red; } .has-success { border-color: green; }`],
-  template: `<form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" class="form">
-              <div class="form-group" [ngClass]="{'has-error': (!content.valid && content.touched), 'has-success': (content.valid && content.touched)}">
-                <quill-editor class="form-control" [formControl]="content" [config]="editorConfig"></quill-editor>
-              </div>
-            </form>`
+  template: `<quill-editor [(ngModel)]="editorContent"
+                           [options]="editorConfig"
+                           (blur)="onEditorBlured($event)"
+                           (focus)="onEditorFocused($event)"
+                           (ready)="onEditorCreated($event)"
+                           (change)="onContentChanged($event)">
+            </quill-editor>
+            <div class="ql-editor preview" [innerHTML]="editorContent"></div>`,
+  styles: [
+    `
+     .quill-editor {
+       min-height: 16em;
+       max-height: 20em;
+       overflow-y: auto;
+     }
+     .preview {
+       min-height: 10em;
+       max-height: 16em;
+       overflow-y: auto;
+       border: 1px solid #eee;
+       border-top: none;
+     }
+    `
+  ],
+  encapsulation: ViewEncapsulation.None
 })
 export class QuillEditorComponentExample02 {
 
-  public form:FormGroup;
-  public content:AbstractControl;
-
+  public editor;
+  public editorContent = `<h3>I am Example 02</h3>`;
   public editorConfig = {
-    theme: 'bubble',
-    placeholder: "输入任何内容，支持html",
-    modules: {
-      toolbar: [
-        ['bold', 'italic', 'underline', 'strike'],
-        [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-        [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-        [{ 'color': [] }, { 'background': [] }],
-        [{ 'font': [] }],
-        [{ 'align': [] }],
-        ['link', 'image'],
-        ['clean']
-      ]
-    }
+    placeholder: "输入公告内容，支持html"
   };
 
-  constructor(private _fb:FormBuilder) {
-    this.form = _fb.group({
-      'content': ['<p>I am Example 02</p>', Validators.compose([Validators.required])],
-    });
+  constructor() {}
 
-    this.content = this.form.controls['content'];
-  };
+  onEditorBlured(quill) {
+    console.log('editor blur!', quill);
+  }
 
-  public submitAnnouncement(values:Object):void {
-    if (this.form.valid) {
-       console.log('Submit!', values);
-    }
+  onEditorFocused(quill) {
+    console.log('editor focus!', quill);
+  }
+
+  onEditorCreated(quill) {
+    this.editor = quill;
+    console.log('quill is ready! this is current quill instance object', quill);
+  }
+
+  onContentChanged({ quill, html, text }) {
+    console.log('quill content is changed!', quill, html, text);
+  }
+
+  ngOnInit() {
+    setTimeout(() => {
+      this.editorContent = '<h1>Example 02 changed!</h1>';
+      console.log('you can use the quill instance object to do something', this.editor);
+      // this.editor.disable();
+    }, 2800)
   }
 }

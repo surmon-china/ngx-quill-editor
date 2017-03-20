@@ -11,17 +11,18 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
-
-const Quill = require('quill/dist/quill.js');
+const Quill = require('quill');
 
 @Component({
   selector: 'quill-editor',
-  template: `<div></div>`,
+  template: `<div class="quill-editor"></div>`,
   styleUrls: [
-    './quillEditor.component.css',
-    '../quill/dist/quill.snow.css',
-    '../quill/dist/quill.bubble.css',
-    '../quill/dist/quill.core.css'
+    './quillEditor.component.css'
+  ],
+  styles: [
+    require('quill/dist/quill.core.css'),
+    require('quill/dist/quill.snow.css'),
+    require('quill/dist/quill.bubble.css')
   ],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
@@ -61,9 +62,11 @@ export class QuillEditorComponent implements AfterViewInit, ControlValueAccessor
   };
 
   // 传入配置
-  @Input() config: Object;
+  @Input() options: Object;
 
   // 派发事件
+  @Output() blur: EventEmitter<any> = new EventEmitter();
+  @Output() focus: EventEmitter<any> = new EventEmitter();
   @Output() ready: EventEmitter<any> = new EventEmitter();
   @Output() change: EventEmitter<any> = new EventEmitter();
 
@@ -84,7 +87,7 @@ export class QuillEditorComponent implements AfterViewInit, ControlValueAccessor
       readOnly: false,
       theme: 'snow',
       boundary: document.body
-    }, this.config || {}));
+    }, this.options || {}));
 
     // 写入内容
     if (this.content) {
@@ -98,6 +101,9 @@ export class QuillEditorComponent implements AfterViewInit, ControlValueAccessor
     this.quillEditor.on('selection-change', (range) => {
       if (!range) {
         this.onModelTouched();
+        this.blur.emit(this.quillEditor);
+      } else {
+        this.focus.emit(this.quillEditor);
       }
     });
 
