@@ -1,22 +1,22 @@
-webpackJsonp([1,3],{
+webpackJsonp([2,4],{
 
-/***/ 379:
-/***/ function(module, exports, __webpack_require__) {
+/***/ 358:
+/***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(415);
+var content = __webpack_require__(389);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(414)(content, {});
+var update = __webpack_require__(388)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!./../node_modules/.0.23.1@css-loader/index.js?sourcemap!./../node_modules/.0.9.1@postcss-loader/index.js!./styles.css", function() {
-			var newContent = require("!!./../node_modules/.0.23.1@css-loader/index.js?sourcemap!./../node_modules/.0.9.1@postcss-loader/index.js!./styles.css");
+		module.hot.accept("!!../node_modules/.0.26.4@css-loader/index.js?{\"sourceMap\":false,\"importLoaders\":1}!../node_modules/.0.13.0@postcss-loader/index.js!./styles.css", function() {
+			var newContent = require("!!../node_modules/.0.26.4@css-loader/index.js?{\"sourceMap\":false,\"importLoaders\":1}!../node_modules/.0.13.0@postcss-loader/index.js!./styles.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -25,10 +25,10 @@ if(false) {
 	module.hot.dispose(function() { update(); });
 }
 
-/***/ },
+/***/ }),
 
-/***/ 414:
-/***/ function(module, exports) {
+/***/ 388:
+/***/ (function(module, exports) {
 
 /*
 	MIT License http://www.opensource.org/licenses/mit-license.php
@@ -43,7 +43,7 @@ var stylesInDom = {},
 		};
 	},
 	isOldIE = memoize(function() {
-		return /msie [6-9]\b/.test(window.navigator.userAgent.toLowerCase());
+		return /msie [6-9]\b/.test(self.navigator.userAgent.toLowerCase());
 	}),
 	getHeadElement = memoize(function () {
 		return document.head || document.getElementsByTagName("head")[0];
@@ -278,25 +278,33 @@ function updateLink(linkElement, obj) {
 }
 
 
-/***/ },
+/***/ }),
 
-/***/ 415:
-/***/ function(module, exports, __webpack_require__) {
+/***/ 389:
+/***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(416)();
+exports = module.exports = __webpack_require__(55)();
 // imports
 
 
 // module
-exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\nbody {\n  font-family: \"Roboto-Regular\",\"Roboto\",\"Helvetica Neue Light\",\"Helvetica Neue\",Helvetica,Arial,\"Lucida Grande\",sans-serif;\n  margin: 0;\n}\n\n[md-button], [md-raised-button] {\n  text-transform: uppercase;\n}\n\nh1, h2 {\n  weight: 400;\n}\n\n@font-face {\n  font-family: 'Roboto-Regular';\n  src: url(\"ng2-quill-editor/assets/fonts/Roboto-Regular.ttf\") format(\"truetype\"); }\n\n/* fallback */\n@font-face {\n  font-family: 'Material Icons';\n  font-style: normal;\n  font-weight: 400;\n  src: local('Material Icons'), local('MaterialIcons-Regular'), url(https://fonts.gstatic.com/s/materialicons/v19/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2) format('woff2');\n}\n\n.material-icons {\n  font-family: 'Material Icons';\n  font-weight: normal;\n  font-style: normal;\n  font-size: 24px;  /* Preferred icon size */\n  display: inline-block;\n  line-height: 1;\n  text-transform: none;\n  letter-spacing: normal;\n  word-wrap: normal;\n  white-space: nowrap;\n  direction: ltr;\n  /* Support for all WebKit browsers. */\n  -webkit-font-smoothing: antialiased;\n  /* Support for Safari and Chrome. */\n  text-rendering: optimizeLegibility;\n  /* Support for Firefox. */\n  -moz-osx-font-smoothing: grayscale;\n  /* Support for IE. */\n  font-feature-settings: 'liga';\n  -webkit-font-feature-settings: 'liga';\n}\n", ""]);
+exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\nbody {\n  font-family: \"Roboto-Regular\",\"Roboto\",\"Helvetica Neue Light\",\"Helvetica Neue\",Helvetica,Arial,\"Lucida Grande\",sans-serif;\n  margin: 0;\n}\n\n[md-button], [md-raised-button] {\n  text-transform: uppercase;\n}\n\nh1, h2 {\n  weight: 400;\n}\n\n@font-face {\n  font-family: 'Roboto-Regular';\n  src: url(\"/assets/fonts/Roboto-Regular.ttf\") format(\"truetype\"); }\n\n/* fallback */\n@font-face {\n  font-family: 'Material Icons';\n  font-style: normal;\n  font-weight: 400;\n  src: local('Material Icons'), local('MaterialIcons-Regular'), url(https://fonts.gstatic.com/s/materialicons/v19/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2) format('woff2');\n}\n\n.material-icons {\n  font-family: 'Material Icons';\n  font-weight: normal;\n  font-style: normal;\n  font-size: 24px;  /* Preferred icon size */\n  display: inline-block;\n  line-height: 1;\n  text-transform: none;\n  letter-spacing: normal;\n  word-wrap: normal;\n  white-space: nowrap;\n  direction: ltr;\n  /* Support for all WebKit browsers. */\n  -webkit-font-smoothing: antialiased;\n  /* Support for Safari and Chrome. */\n  text-rendering: optimizeLegibility;\n  /* Support for Firefox. */\n  -moz-osx-font-smoothing: grayscale;\n  /* Support for IE. */\n  font-feature-settings: 'liga';\n  -webkit-font-feature-settings: 'liga';\n}\n", ""]);
 
 // exports
 
 
-/***/ },
+/***/ }),
 
-/***/ 416:
-/***/ function(module, exports) {
+/***/ 451:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(358);
+
+
+/***/ }),
+
+/***/ 55:
+/***/ (function(module, exports) {
 
 /*
 	MIT License http://www.opensource.org/licenses/mit-license.php
@@ -350,15 +358,7 @@ module.exports = function() {
 };
 
 
-/***/ },
+/***/ })
 
-/***/ 702:
-/***/ function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(379);
-
-
-/***/ }
-
-},[702]);
-//# sourceMappingURL=styles.bundle.map
+},[451]);
+//# sourceMappingURL=styles.bundle.js.map
