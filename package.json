@@ -1,14 +1,14 @@
 {
-  "name": "ng2-quill-editor",
-  "version": "2.0.0",
-  "description": "Quill editor component for Angular2",
+  "name": "ngx-quill-editor",
+  "version": "2.0.2",
+  "description": "Quill editor component for AngularX",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/surmon-china/ng2-quill-editor.git"
+    "url": "https://github.com/surmon-china/ngx-quill-editor.git"
   },
   "keywords": [
     "ng2-quill-editor",
@@ -26,7 +26,7 @@
     "quill": "^1.1.7"
   },
   "bugs": {
-    "url": "https://github.com/surmon-china/ng2-quill-editor/issues"
+    "url": "https://github.com/surmon-china/ngx-quill-editor/issues"
   },
-  "homepage": "https://github.com/surmon-china/ng2-quill-editor#readme"
+  "homepage": "https://github.com/surmon-china/ngx-quill-editor#readme"
 }

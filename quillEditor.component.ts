@@ -11,18 +11,17 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
+declare var require: any;
 const Quill = require('quill');
 
 @Component({
   selector: 'quill-editor',
   template: `<div class="quill-editor"></div>`,
   styleUrls: [
-    './quillEditor.component.css'
-  ],
-  styles: [
-    require('quill/dist/quill.core.css'),
-    require('quill/dist/quill.snow.css'),
-    require('quill/dist/quill.bubble.css')
+    './quillEditor.component.css',
+    '../quill/dist/quill.core.css',
+    '../quill/dist/quill.snow.css',
+    '../quill/dist/quill.bubble.css'
   ],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
