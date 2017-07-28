@@ -11,7 +11,11 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
-declare var require: any;
+import StringMap = Quill.StringMap;
+import RangeStatic = Quill.RangeStatic;
+import DeltaStatic = Quill.DeltaStatic;
+import Sources = Quill.Sources;
+import QuillType = Quill.Quill;
 const Quill = require('quill');
 
 @Component({
@@ -33,10 +37,10 @@ const Quill = require('quill');
 export class QuillEditorComponent implements AfterViewInit, ControlValueAccessor, OnChanges {
 
   // 基本数据
-  quillEditor: any;
+  quillEditor: QuillType;
   editorElem: HTMLElement;
-  content: any;
-  defaultModules = {
+  content: string;
+  defaultModules:StringMap = {
     toolbar: [
       ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
       ['blockquote', 'code-block'],
@@ -64,10 +68,10 @@ export class QuillEditorComponent implements AfterViewInit, ControlValueAccessor
   @Input() options: Object;
 
   // 派发事件
-  @Output() blur: EventEmitter<any> = new EventEmitter();
-  @Output() focus: EventEmitter<any> = new EventEmitter();
-  @Output() ready: EventEmitter<any> = new EventEmitter();
-  @Output() change: EventEmitter<any> = new EventEmitter();
+  @Output() blur: EventEmitter<QuillType> = new EventEmitter();
+  @Output() focus: EventEmitter<QuillType> = new EventEmitter();
+  @Output() ready: EventEmitter<QuillType> = new EventEmitter();
+  @Output() change: EventEmitter<{editor: QuillType, html: String, text: String}> = new EventEmitter();
 
   // ...
   onModelChange: Function = () => {};
@@ -97,7 +101,7 @@ export class QuillEditorComponent implements AfterViewInit, ControlValueAccessor
     this.ready.emit(this.quillEditor);
 
     // mark model as touched if editor lost focus
-    this.quillEditor.on('selection-change', (range) => {
+    this.quillEditor.on('selection-change', (range: RangeStatic) => {
       if (!range) {
         this.onModelTouched();
         this.blur.emit(this.quillEditor);
@@ -107,7 +111,7 @@ export class QuillEditorComponent implements AfterViewInit, ControlValueAccessor
     });
 
     // update model if text changes
-    this.quillEditor.on('text-change', (delta, oldDelta, source) => {
+    this.quillEditor.on('text-change', (delta: DeltaStatic, oldDelta: DeltaStatic, source: Sources) => {
       let html = this.editorElem.children[0].innerHTML;
       const text = this.quillEditor.getText();
 
@@ -131,7 +135,7 @@ export class QuillEditorComponent implements AfterViewInit, ControlValueAccessor
   }
 
   // 写数据
-  writeValue(currentValue: any) {
+  writeValue(currentValue: string) {
     this.content = currentValue;
 
     if (this.quillEditor) {
