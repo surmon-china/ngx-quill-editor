@@ -8,7 +8,7 @@
 
 
 # Ngx-Quill-Editor
-Quill editor for Angularx.
+Quill editor for AngularX.
 
 基于Quill、适用于Angularx的富文本编辑器。
 
