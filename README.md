@@ -23,11 +23,6 @@ Quill editor for AngularX.
 npm install ngx-quill-editor --save
 ```
 
-``` bash
-npm install --save-dev @types/quill
-```
-
-
 ### Sample
 
 Include QuillEditorModule in your main module:

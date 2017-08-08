@@ -1,7 +1,7 @@
 {
   "name": "ngx-quill-editor",
-  "version": "2.1.0",
-  "description": "Quill editor component for AngularX",
+  "version": "2.2.1",
+  "description": "Quill editor component for Angular",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -23,13 +23,11 @@
   },
   "license": "MIT",
   "dependencies": {
-    "quill": "^1.1.7"
+    "@types/quill": "^0.0.31",
+    "quill": "^1.3.1"
   },
   "bugs": {
     "url": "https://github.com/surmon-china/ngx-quill-editor/issues"
   },
-  "homepage": "https://github.com/surmon-china/ngx-quill-editor#readme",
-  "devDependencies": {
-    "@types/quill": "0.0.31"
-  }
+  "homepage": "https://github.com/surmon-china/ngx-quill-editor#readme"
 }
