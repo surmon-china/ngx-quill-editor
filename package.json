@@ -1,6 +1,6 @@
 {
   "name": "ngx-quill-editor",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "description": "Quill editor component for Angular",
   "main": "index.js",
   "scripts": {
