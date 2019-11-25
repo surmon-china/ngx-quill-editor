@@ -108,7 +108,14 @@ export class QuillEditorComponent implements AfterViewInit, ControlValueAccessor
 
     // update model if text changes
     this.quillEditor.on('text-change', (delta: any, oldDelta: any, source: any) => {
-      let html = this.editorElem.children[0].innerHTML;
+      let html: any;
+      for (let i = 0; i < this.editorElem.children.length; i++) {
+        if (this.editorElem.children[i].className == 'ql-editor') {
+          html = this.editorElem.children[i].innerHTML;
+          break;
+        }
+      }
+
       const text = this.quillEditor.getText();
 
       if (html === '<p><br></p>') html = null;
