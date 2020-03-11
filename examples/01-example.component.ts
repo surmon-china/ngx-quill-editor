@@ -4,11 +4,13 @@ import { FormGroup, AbstractControl, FormBuilder, Validators } from '@angular/fo
 @Component({
   selector: 'quill-example-01',
   styles: [`.form-control .quill-editor{overflow: visible;} .form-group { border: 1px solid #ccc; position: relative; } .has-error { border-color: red; } .has-success { border-color: green; }`],
-  template: `<form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" class="form">
-              <div class="form-group" [ngClass]="{'has-error': (!content.valid && content.touched), 'has-success': (content.valid && content.touched)}">
-                <quill-editor class="form-control" [formControl]="content" [options]="editorConfig"></quill-editor>
-              </div>
-            </form>`,
+  template: `
+  <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" class="form">
+    <div class="form-group" [ngClass]="{'has-error': (!content.valid && content.touched), 'has-success': (content.valid && content.touched)}">
+      <quill-editor class="form-control" [formControl]="content" [options]="editorConfig"></quill-editor>
+    </div>
+  </form>
+  `,
   encapsulation: ViewEncapsulation.None
 })
 export class QuillEditorComponentExample01 {
@@ -43,7 +45,7 @@ export class QuillEditorComponentExample01 {
 
   public submitAnnouncement(values:Object):void {
     if (this.form.valid) {
-       console.log('Submit!', values);
+      console.log('Submit!', values);
     }
   }
 }

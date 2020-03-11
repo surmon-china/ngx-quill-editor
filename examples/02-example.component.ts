@@ -2,14 +2,17 @@ import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'quill-example-02',
-  template: `<quill-editor [(ngModel)]="editorContent"
-                           [options]="editorConfig"
-                           (blur)="onEditorBlured($event)"
-                           (focus)="onEditorFocused($event)"
-                           (ready)="onEditorCreated($event)"
-                           (change)="onContentChanged($event)">
-            </quill-editor>
-            <div class="ql-editor preview" [innerHTML]="editorContent"></div>`,
+  template: `
+    <quill-editor
+      [(ngModel)]="editorContent"
+      [options]="editorConfig"
+      (blur)="onEditorBlured($event)"
+      (focus)="onEditorFocused($event)"
+      (ready)="onEditorCreated($event)"
+      (change)="onContentChanged($event)"
+    >
+    </quill-editor>
+    <div class="ql-editor preview" [innerHTML]="editorContent"></div>`,
   styles: [
     `
      .quill-editor {

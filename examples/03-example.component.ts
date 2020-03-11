@@ -3,30 +3,33 @@ import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
 @Component({
   selector: 'quill-example-03',
   template: `
-            <div id="toolbar">
-              <!-- Add a bold button -->
-              <button class="ql-bold">Bold</button>
-              <button class="ql-italic">Italic</button>
-              <!-- Add font size dropdown -->
-              <select class="ql-size">
-                <option value="small"></option>
-                <!-- Note a missing, thus falsy value, is used to reset to default -->
-                <option selected></option>
-                <option value="large"></option>
-                <option value="huge"></option>
-              </select>
-              <!-- Add subscript and superscript buttons -->
-              <button class="ql-script" value="sub"></button>
-              <button class="ql-script" value="super"></button>
-              <button style="width: 120px" (click)="customButtonClick()">custom button</button>
-            </div>
-            <quill-editor  [(ngModel)]="editorContent"
-                           [options]="editorConfig"
-                           (blur)="onEditorBlured($event)"
-                           (focus)="onEditorFocused($event)"
-                           (ready)="onEditorCreated($event)"
-                           (change)="onContentChanged($event)">
-            </quill-editor>`,
+    <div id="toolbar">
+      <!-- Add a bold button -->
+      <button class="ql-bold">Bold</button>
+      <button class="ql-italic">Italic</button>
+      <!-- Add font size dropdown -->
+      <select class="ql-size">
+        <option value="small"></option>
+        <!-- Note a missing, thus falsy value, is used to reset to default -->
+        <option selected></option>
+        <option value="large"></option>
+        <option value="huge"></option>
+      </select>
+      <!-- Add subscript and superscript buttons -->
+      <button class="ql-script" value="sub"></button>
+      <button class="ql-script" value="super"></button>
+      <button style="width: 120px" (click)="customButtonClick()">custom button</button>
+    </div>
+    <quill-editor 
+      [(ngModel)]="editorContent"
+      [options]="editorConfig"
+      (blur)="onEditorBlured($event)"
+      (focus)="onEditorFocused($event)"
+      (ready)="onEditorCreated($event)"
+      (change)="onContentChanged($event)"
+    >
+    </quill-editor>
+  `,
   styles: [
     `
      .quill-editor {

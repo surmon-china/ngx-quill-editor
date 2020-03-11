@@ -1,20 +1,26 @@
+# THIS PROJECT IS DEPRECATED
+
+❌ Component is not maintained anymore.
+
+✅ Please consider using [ngx-quill](https://github.com/KillerCodeMonkey/ngx-quill).
+
+---
+
 [![GitHub issues](https://img.shields.io/github/issues/surmon-china/ngx-quill-editor.svg?style=flat-square)](https://github.com/surmon-china/ngx-quill-editor/issues)
 [![GitHub forks](https://img.shields.io/github/forks/surmon-china/ngx-quill-editor.svg?style=flat-square)](https://github.com/surmon-china/ngx-quill-editor/network)
 [![GitHub stars](https://img.shields.io/github/stars/surmon-china/ngx-quill-editor.svg?style=flat-square)](https://github.com/surmon-china/ngx-quill-editor/stargazers)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/surmon-china/ngx-quill-editor/master/LICENSE)
-[![Twitter](https://img.shields.io/twitter/url/https/github.com/surmon-china/ngx-quill-editor.svg?style=social?style=flat-square)](https://twitter.com/intent/tweet?text=Wow:&url=%5Bobject%20Object%5D)
-
-[![NPM](https://nodei.co/npm/ngx-quill-editor.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/ngx-quill-editor/)
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
 
 
-# Ngx-Quill-Editor
+# ngx-quill-editor
 Quill editor for AngularX.
 
-基于Quill、适用于Angularx的富文本编辑器。
+基于 Quill、适用于 AngularX 的富文本编辑器。
 
 
 # Example
-[Demo Page](https://surmon-china.github.io/ngx-quill-editor/)
+[Demo Page](https://surmon-china.github.io/ngx-quill-editor)
 
 
 ### Installation
@@ -43,22 +49,26 @@ Then use it in your component:
 
 ``` html
 <!-- use with ngModel -->
-<quill-editor [(ngModel)]="editorContent"
-              [options]="editorOptions"
-              (blur)="onEditorBlured($event)"
-              (focus)="onEditorFocused($event)"
-              (ready)="onEditorCreated($event)"
-              (change)="onContentChanged($event)"></quill-editor>
+<quill-editor
+  [(ngModel)]="editorContent"
+  [options]="editorOptions"
+  (blur)="onEditorBlured($event)"
+  (focus)="onEditorFocused($event)"
+  (ready)="onEditorCreated($event)"
+  (change)="onContentChanged($event)"
+></quill-editor>
 
 
 <!-- or use with formControl -->
-<quill-editor class="form-control"
-              [formControl]="editorContent"
-              [options]="editorOptions"
-              (blur)="onEditorBlured($event)"
-              (focus)="onEditorFocused($event)"
-              (ready)="onEditorCreated($event)"
-              (change)="onContentChanged($event)"></quill-editor>
+<quill-editor
+  class="form-control"
+  [formControl]="editorContent"
+  [options]="editorOptions"
+  (blur)="onEditorBlured($event)"
+  (focus)="onEditorFocused($event)"
+  (ready)="onEditorCreated($event)"
+  (change)="onContentChanged($event)"
+></quill-editor>
 ```
 
 ``` javascript
@@ -105,10 +115,5 @@ export class Sample {
 }
 ```
 
-
 ### Configuration
 - options : The configuration object for quill see https://quilljs.com/docs/quickstart/
-
-
-# Author Blog
-[Surmon](https://surmon.me)
